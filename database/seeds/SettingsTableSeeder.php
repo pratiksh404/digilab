@@ -1,145 +1,121 @@
 <?php
 
+use doctype_admin\Settings\Models\Setting;
 use Illuminate\Database\Seeder;
-use TCG\Voyager\Models\Setting;
 
 class SettingsTableSeeder extends Seeder
 {
     /**
-     * Auto generated seed file.
+     * Run the database seeds.
+     *
+     * @return void
      */
     public function run()
     {
-        $setting = $this->findSetting('site.title');
-        if (!$setting->exists) {
-            $setting->fill([
-                'display_name' => __('voyager::seeders.settings.site.title'),
-                'value'        => __('voyager::seeders.settings.site.title'),
-                'details'      => '',
-                'type'         => 'text',
-                'order'        => 1,
-                'group'        => 'Site',
-            ])->save();
-        }
 
-        $setting = $this->findSetting('site.description');
-        if (!$setting->exists) {
-            $setting->fill([
-                'display_name' => __('voyager::seeders.settings.site.description'),
-                'value'        => __('voyager::seeders.settings.site.description'),
-                'details'      => '',
-                'type'         => 'text',
-                'order'        => 2,
-                'group'        => 'Site',
-            ])->save();
+        $settings = [
+            [
+                'setting_name' => 'prefix',
+                'string_value' => 'Doctype',
+                'integer_value' => null,
+                'text_value' => null,
+                'boolean_value' => null,
+                'setting_type' => 1,
+                'setting_custom' => null,
+            ],
+            [
+                'setting_name' => 'suffix',
+                'string_value' => 'Admin',
+                'integer_value' => null,
+                'text_value' => null,
+                'boolean_value' => null,
+                'setting_type' => 1,
+                'setting_custom' => null,
+            ],
+            [
+                'setting_name' => 'site_name',
+                'string_value' => 'Doctype Admin',
+                'integer_value' => null,
+                'text_value' => null,
+                'boolean_value' => null,
+                'setting_type' => 1,
+                'setting_custom' => null,
+            ],
+            [
+                'setting_name' => 'counter_background',
+                'string_value' => 'uploads/setting/p2UrdGh8JE1xSjX1bai7qyKeHECzf6RoeXHnoiVg.jpeg',
+                'integer_value' => null,
+                'text_value' => null,
+                'boolean_value' => null,
+                'setting_type' => 3,
+                'setting_custom' => '{ "image" : { "fit" : { "width" : "1000", "height" : "700" }, "quality" : "80" } }',
+            ],
+            [
+                'setting_name' => 'about',
+                'string_value' => null,
+                'integer_value' => null,
+                'text_value' => '<p style="color: rgb(153, 153, 153); font-family: &quot;Nunito Sans&quot;, Arial, sans-serif;">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p><p style="color: rgb(153, 153, 153); font-family: &quot;Nunito Sans&quot;, Arial, sans-serif;">Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p><p style="color: rgb(153, 153, 153); font-family: &quot;Nunito Sans&quot;, Arial, sans-serif;">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>',
+                'boolean_value' => null,
+                'setting_type' => 2,
+                'setting_custom' => null,
+            ],
+            [
+                'setting_name' => 'about_background',
+                'string_value' => 'uploads/setting/k5V4cs9ixAdh1RBfRswHvkmJ2FsUvFrKYhfqqejJ.jpeg',
+                'integer_value' => null,
+                'text_value' => null,
+                'boolean_value' => null,
+                'setting_type' => 3,
+                'setting_custom' => null,
+            ],
+            [
+                'setting_name' => 'address',
+                'string_value' => '198 West 21th Street, Suite',
+                'integer_value' => null,
+                'text_value' => null,
+                'boolean_value' => null,
+                'setting_type' => 1,
+                'setting_custom' => null,
+            ],
+            [
+                'setting_name' => 'contact_number',
+                'string_value' => '+ 1235 2355 98',
+                'integer_value' => null,
+                'text_value' => null,
+                'boolean_value' => null,
+                'setting_type' => 1,
+                'setting_custom' => null,
+            ],
+            [
+                'setting_name' => 'email_address',
+                'string_value' => 'info@yoursite.com',
+                'integer_value' => null,
+                'text_value' => null,
+                'boolean_value' => null,
+                'setting_type' => 1,
+                'setting_custom' => null,
+            ],
+            [
+                'setting_name' => 'website',
+                'string_value' => 'yoursite.com',
+                'integer_value' => null,
+                'text_value' => null,
+                'boolean_value' => null,
+                'setting_type' => 1,
+                'setting_custom' => null,
+            ],
+            [
+                'setting_name' => 'map',
+                'string_value' => 'https://maps.google.com/maps?q=samridhi%20college&t=&z=13&ie=UTF8&iwloc=&output=embed',
+                'integer_value' => null,
+                'text_value' => null,
+                'boolean_value' => null,
+                'setting_type' => 1,
+                'setting_custom' => null,
+            ],
+        ];
+        foreach ($settings as $setting) {
+            Setting::create($setting);
         }
-
-        $setting = $this->findSetting('site.logo');
-        if (!$setting->exists) {
-            $setting->fill([
-                'display_name' => __('voyager::seeders.settings.site.logo'),
-                'value'        => '',
-                'details'      => '',
-                'type'         => 'image',
-                'order'        => 3,
-                'group'        => 'Site',
-            ])->save();
-        }
-
-        $setting = $this->findSetting('site.google_analytics_tracking_id');
-        if (!$setting->exists) {
-            $setting->fill([
-                'display_name' => __('voyager::seeders.settings.site.google_analytics_tracking_id'),
-                'value'        => '',
-                'details'      => '',
-                'type'         => 'text',
-                'order'        => 4,
-                'group'        => 'Site',
-            ])->save();
-        }
-
-        $setting = $this->findSetting('admin.bg_image');
-        if (!$setting->exists) {
-            $setting->fill([
-                'display_name' => __('voyager::seeders.settings.admin.background_image'),
-                'value'        => '',
-                'details'      => '',
-                'type'         => 'image',
-                'order'        => 5,
-                'group'        => 'Admin',
-            ])->save();
-        }
-
-        $setting = $this->findSetting('admin.title');
-        if (!$setting->exists) {
-            $setting->fill([
-                'display_name' => __('voyager::seeders.settings.admin.title'),
-                'value'        => 'Voyager',
-                'details'      => '',
-                'type'         => 'text',
-                'order'        => 1,
-                'group'        => 'Admin',
-            ])->save();
-        }
-
-        $setting = $this->findSetting('admin.description');
-        if (!$setting->exists) {
-            $setting->fill([
-                'display_name' => __('voyager::seeders.settings.admin.description'),
-                'value'        => __('voyager::seeders.settings.admin.description_value'),
-                'details'      => '',
-                'type'         => 'text',
-                'order'        => 2,
-                'group'        => 'Admin',
-            ])->save();
-        }
-
-        $setting = $this->findSetting('admin.loader');
-        if (!$setting->exists) {
-            $setting->fill([
-                'display_name' => __('voyager::seeders.settings.admin.loader'),
-                'value'        => '',
-                'details'      => '',
-                'type'         => 'image',
-                'order'        => 3,
-                'group'        => 'Admin',
-            ])->save();
-        }
-
-        $setting = $this->findSetting('admin.icon_image');
-        if (!$setting->exists) {
-            $setting->fill([
-                'display_name' => __('voyager::seeders.settings.admin.icon_image'),
-                'value'        => '',
-                'details'      => '',
-                'type'         => 'image',
-                'order'        => 4,
-                'group'        => 'Admin',
-            ])->save();
-        }
-
-        $setting = $this->findSetting('admin.google_analytics_client_id');
-        if (!$setting->exists) {
-            $setting->fill([
-                'display_name' => __('voyager::seeders.settings.admin.google_analytics_client_id'),
-                'value'        => '',
-                'details'      => '',
-                'type'         => 'text',
-                'order'        => 1,
-                'group'        => 'Admin',
-            ])->save();
-        }
-    }
-
-    /**
-     * [setting description].
-     *
-     * @param [type] $key [description]
-     *
-     * @return [type] [description]
-     */
-    protected function findSetting($key)
-    {
-        return Setting::firstOrNew(['key' => $key]);
     }
 }

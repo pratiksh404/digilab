@@ -1,7 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use TCG\Voyager\Models\Post;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +15,14 @@ use TCG\Voyager\Models\Post;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontend.index');
 });
 
-Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
+Auth::routes();
+
+Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth', 'activity', 'role:admin']], function () {
+    Route::get('/dashboard', 'Admin\DashboardController@index')->name('dashboard');
+    Route::get('/plugin', function () {
+        return view('admin.plugin');
+    });
 });

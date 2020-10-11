@@ -1,29 +1,51 @@
 {
-    "name": "laravel/laravel",
+    "name": "drh2so4/doctype_admin",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "version": "1.0.0",
+    "description": "Laravel 7 Admin Panel for lazy developers. Contains User Management, Roles and Permission Management, Activity Logging",
     "keywords": [
-        "framework",
-        "laravel"
+        "doctype nepal",
+        "doctypenepal",
+        "doctype admin",
+        "doctype admin panel",
+        "drh2so4",
+        "pratiksh404",
+        "pratikshrestha",
+        "pratik shrestha",
+        "laravel",
+        "admin-dashboard",
+        "admin-panel",
+        "starter-kit",
+        "laravel-starter-kit",
+        "laravel-admin-panel",
+        "laravel-admin",
+        "doctype-admin-panel",
+        "laravel-admin"
     ],
     "license": "MIT",
     "require": {
-        "php": "^7.3",
+        "php": "^7.2.5",
+        "doctype_admin/blog": "^1.0",
+        "doctype_admin/doctype_website": "^1.0",
+        "doctype_admin/settings": "^1.0",
         "fideloper/proxy": "^4.2",
-        "fruitcake/laravel-cors": "^2.0",
-        "guzzlehttp/guzzle": "^7.0.1",
-        "laravel/framework": "^8.0",
+        "fruitcake/laravel-cors": "^1.0",
+        "guzzlehttp/guzzle": "^6.3",
+        "jeremykenedy/laravel-logger": "^3.3",
+        "jeremykenedy/laravel-roles": "^3.0",
+        "jeremykenedy/laravel-users": "^4.1",
+        "jeroennoten/laravel-adminlte": "^3.2",
+        "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
-        "model-log": "^1.0",
-        "rtconner/laravel-tagging": "~4.0",
-        "tcg/voyager": "^1.4"
+        "laravel/ui": "^2.0",
+        "livewire/livewire": "^2.2"
     },
     "require-dev": {
-        "facade/ignition": "^2.3.6",
+        "barryvdh/laravel-debugbar": "^3.5",
+        "facade/ignition": "^2.0",
         "fzaninotto/faker": "^1.9.1",
         "mockery/mockery": "^1.3.1",
-        "nunomaduro/collision": "^5.0",
-        "phpunit/phpunit": "^9.3"
+        "nunomaduro/collision": "^4.1"
     },
     "config": {
         "optimize-autoloader": true,
@@ -37,10 +59,15 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "app/",
-            "Database\\Factories\\": "database/factories/",
-            "Database\\Seeders\\": "database/seeders/"
-        }
+            "App\\": "app/"
+        },
+        "classmap": [
+            "database/seeds",
+            "database/factories"
+        ],
+        "files": [
+            "app/Helper/WebsiteHelper.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
@@ -60,11 +87,5 @@
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
         ]
-    },
-    "repositories": {
-        "hooks": {
-            "type": "composer",
-            "url": "https://larapack.io"
-        }
     }
 }

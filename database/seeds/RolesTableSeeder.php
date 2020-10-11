@@ -1,27 +1,55 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use TCG\Voyager\Models\Role;
 
 class RolesTableSeeder extends Seeder
 {
     /**
-     * Auto generated seed file.
+     * Run the database seeds.
+     *
+     * @return void
      */
     public function run()
     {
-        $role = Role::firstOrNew(['name' => 'admin']);
-        if (!$role->exists) {
-            $role->fill([
-                'display_name' => __('voyager::seeders.roles.admin'),
-            ])->save();
-        }
+        /*
+         * Role Types
+         *
+         */
+        $RoleItems = [
+            [
+                'name'        => 'Admin',
+                'slug'        => 'admin',
+                'description' => 'Admin Role',
+                'level'       => 5,
+            ],
+            [
+                'name'        => 'User',
+                'slug'        => 'user',
+                'description' => 'User Role',
+                'level'       => 1,
+            ],
+            [
+                'name'        => 'Unverified',
+                'slug'        => 'unverified',
+                'description' => 'Unverified Role',
+                'level'       => 0,
+            ],
+        ];
 
-        $role = Role::firstOrNew(['name' => 'user']);
-        if (!$role->exists) {
-            $role->fill([
-                'display_name' => __('voyager::seeders.roles.user'),
-            ])->save();
+        /*
+         * Add Role Items
+         *
+         */
+        foreach ($RoleItems as $RoleItem) {
+            $newRoleItem = config('roles.models.role')::where('slug', '=', $RoleItem['slug'])->first();
+            if ($newRoleItem === null) {
+                $newRoleItem = config('roles.models.role')::create([
+                    'name'          => $RoleItem['name'],
+                    'slug'          => $RoleItem['slug'],
+                    'description'   => $RoleItem['description'],
+                    'level'         => $RoleItem['level'],
+                ]);
+            }
         }
     }
 }
