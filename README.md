@@ -77,13 +77,26 @@ This allows you to have necessary login credential
 
 ## Screenshots
 
-![Doctype Admin Digilab](https://github.com/pratiksh404/digilab/blob/master/screenshot/homepage.jpg)
-![Doctype Admin Digilab](https://github.com/pratiksh404/digilab/blob/master/screenshot/about.jpg)
-![Doctype Admin Digilab](https://github.com/pratiksh404/digilab/blob/master/screenshot/login.jpg)
-![Doctype Admin Digilab](https://github.com/pratiksh404/digilab/blob/master/screenshot/register.jpg)
-![Doctype Admin Digilab](https://github.com/pratiksh404/digilab/blob/master/screenshot/roles.jpg)
-![Doctype Admin Digilab](https://github.com/pratiksh404/digilab/blob/master/screenshot/all_user.jpg)
-![Doctype Admin Digilab](https://github.com/pratiksh404/digilab/blob/master/screenshot/plugin.jpg)
+![Doctype Admin Digilab](https://github.com/pratiksh404/digilab/blob/main/screenshot/homepage.jpg)
+![Doctype Admin Digilab](https://github.com/pratiksh404/digilab/blob/main/screenshot/about.jpg)
+![Doctype Admin Digilab](https://github.com/pratiksh404/digilab/blob/main/screenshot/login.jpg)
+![Doctype Admin Digilab](https://github.com/pratiksh404/digilab/blob/main/screenshot/register.jpg)
+![Doctype Admin Digilab](https://github.com/pratiksh404/digilab/blob/main/screenshot/roles.jpg)
+![Doctype Admin Digilab](https://github.com/pratiksh404/digilab/blob/main/screenshot/all_user.jpg)
+![Doctype Admin Digilab](https://github.com/pratiksh404/digilab/blob/main/screenshot/plugin.jpg)
+
+## Note
+
+Frontend theme is used from colorlib [Digilab Theme](https://github.com/pratiksh404/digilab/tree/main/resources/views/digilab)
+
+## Contribution
+
+Feel free to improve this open source website. Send us your PR.
+
+## Todos
+
+-   Blogs
+-   Contact Us
 
 ## License
 
